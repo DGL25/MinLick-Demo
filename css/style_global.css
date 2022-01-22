@@ -94,7 +94,7 @@ button{background:none;border: none;}
 
     #screen-1>#nav-bar>#navegacao>#nav-lista>.item-lista-nav>#config{
         width: 50px;height: 50px;
-        background: url(../media/svg/_config-icon.svg) no-repeat center center;background-size: cover;
+        background: url('../media/svg/config-icon.svg') no-repeat center center;background-size: cover;
         border: none;
     }
 
@@ -169,7 +169,7 @@ button{background:none;border: none;}
 
     #screen-3>#cabecalho-area-jogo>#nav-jogo>#lista-nav-jogo>#score-player>#score{font-size: var(--title-btn-menu);margin-top: 5px;}
 
-    #screen-3>#cabecalho-area-jogo>#nav-jogo>#lista-nav-jogo>.item-lista-nav-jogo>#pause-menu{width: 20px;height: 35px;background: url('../_media/_svg/pause-icon.svg') no-repeat center center;background-size: cover;border: none;}
+    #screen-3>#cabecalho-area-jogo>#nav-jogo>#lista-nav-jogo>.item-lista-nav-jogo>#pause-menu{width: 20px;height: 35px;background: url('../media/svg/pause-icon.svg') no-repeat center center;background-size: cover;border: none;}
 
     #screen-3>#icons-btns{height: calc(100vh - 100px);}
 
