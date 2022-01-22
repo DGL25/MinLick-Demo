@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+*{
+    padding: 0;margin: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;font-size: 1em;font-weight: 300;
+    list-style: none;
+    text-decoration: none;
+    color: #F4D58D;
+    border: none;
+}
+
+button{background:none;border: none;}
+
+@font-face {
+    font-family: 'Adelia';
+    src: url('../media/fonts/ADELIA.otf');
+}
+
+:root{
+    --title-play: 1.375em;
+    --title-btn-menu: 1.125em;
+    --desc-btns-menu: 0.875em;
+}
+
+@media (max-width:720px) and (orientation:portrait) {
+    body{background: #001427;}
+
+    .screens{position: absolute;width: 100vw;transition: .25s;top:0;}
+
+    #screen{
+        position: relative;
+        width: 100vw;height: 100vh;
+        overflow: hidden;
+    }
+
+    #screen-1>#menu-principal,
+    #screen-1>#nav-bar,
+    #screen-3>#cabecalho-area-jogo,
+    #screen-3>#icons-btns>#icon-spawn,
+    #screen-3>#icons-btns>#pronto-comecar,
+    #screen-3>#icons-btns>#menu-pause,
+    #screen-3>#icons-btns>#fim-jogo{display: grid;place-items: center;}
+
+    #screen-2{left: 100%;}
+    #screen-3{left: 200%;}
+
+    #screen-3>#icons-btns>#pronto-comecar,
+    #screen-3>#icons-btns>#menu-pause,
+    #screen-3>#icons-btns>#fim-jogo{display: none;}
+
+    #screen-1>#nav-bar{
+        padding: 0 25px;
+        height: 100px;
+        background: transparent;
+    }
+
+    #screen-1>#nav-bar>#navegacao,
+    #screen-1>#nav-bar>#navegacao>#nav-lista{width: 100%;height: 75px;}
+
+    #screen-1>#nav-bar>#navegacao>#nav-lista{
+        display: flex;align-items: center;justify-content: space-between;
+    }
+
+    #screen-1>#nav-bar>#navegacao>#nav-lista>#ava-lv-exp>#avatar-player,
+    #screen-1>#nav-bar>#navegacao>#nav-lista>#ava-lv-exp>#exp-bar{
+        border-radius: 5px;
+        background: #F4D58D;
+    }
+
+    #screen-1>#nav-bar>#navegacao>#nav-lista>#ava-lv-exp{
+        width:160px;height: 75px;
+        display: grid;
+        grid-template-areas: "avatar level"
+                            "avatar exp";
+    }
+
+    #screen-1>#nav-bar>#navegacao>#nav-lista>#ava-lv-exp>#avatar-player{
+        margin: 0 10px 0 0;
+        width: 75px;height: 75px;
+        background: url('../media/svg/avatar-default-minlick.svg') no-repeat center center;background-size: cover;
+        grid-area: avatar;
+    }
+
+    #screen-1>#nav-bar>#navegacao>#nav-lista>#ava-lv-exp>#lv-player{grid-area: level;font-weight: 500;font-size: 1.25em;}
+
+    #screen-1>#nav-bar>#navegacao>#nav-lista>#ava-lv-exp>#exp-bar{
+        position: relative;
+        top: 20px;
+        width: 75px;height: 10px;
+        box-shadow: 0 0 10px rgba(244, 213, 141, .5);
+        grid-area: exp;
+    }
+
+    #screen-1>#nav-bar>#navegacao>#nav-lista>.item-lista-nav>#config{
+        width: 50px;height: 50px;
+        background: url(../media/svg/_config-icon.svg) no-repeat center center;background-size: cover;
+        border: none;
+    }
+
+    #screen-1>#menu-principal{height: calc(100vh - 100px);}
+
+    #screen-1>#menu-principal>#menu-prin{padding: 0px 10px;}
+
+    #screen-1>#menu-principal>#menu-prin>#navegacao-menu-principal>#nav-menu{
+        display: grid;
+        grid-template-areas: "loja jogar"
+                    "loja jogar"
+                    "atualizacao atualizacao";
+        grid-gap: 10px;
+    }
+
+    #screen-1>#menu-principal>#menu-prin>#navegacao-menu-principal>#nav-menu>.sublista-menu,
+    #screen-1>#menu-principal>#menu-prin>#navegacao-menu-principal>#nav-menu>.item-lista-menu:nth-child(2)>.btn-menu{height: calc(100vw - 20px);}
+
+    #screen-1>#menu-principal>#menu-prin>#navegacao-menu-principal>#nav-menu>.sublista-menu,
+    #screen-1>#menu-principal>#menu-prin>#navegacao-menu-principal>#nav-menu>.item-lista-menu:nth-child(2)>.btn-menu>.cabecalho-btn-menu{display: flex;align-items: center;justify-content: space-between;}
+
+    #screen-1>#menu-principal>#menu-prin>#navegacao-menu-principal>#nav-menu .btn-menu{border-radius: 5px;border: 1px solid #F4D58D;background: #001427;}
+
+    #screen-1>#menu-principal>#menu-prin>#navegacao-menu-principal>#nav-menu .btn-menu>.cabecalho-btn-menu{text-align: left;padding: 15px 10px 10px 15px;}
+
+    #screen-1>#menu-principal>#menu-prin>#navegacao-menu-principal>#nav-menu .btn-menu>.cabecalho-btn-menu>.titulo-btn-menu{font-size: var(--title-btn-menu);font-weight: 500;margin-bottom: 10px;}
+
+    #screen-1>#menu-principal>#menu-prin>#navegacao-menu-principal>#nav-menu .btn-menu>.cabecalho-btn-menu>.descricao-btn-menu{font-size: var(--desc-btns-menu);}
+
+    #screen-1>#menu-principal>#menu-prin>#navegacao-menu-principal>#nav-menu>.item-lista-menu:nth-child(2)>.btn-menu>.cabecalho-btn-menu{height:100%;padding:25px 10px;flex-direction: column-reverse;}
+    
+    #screen-1>#menu-principal>#menu-prin>#navegacao-menu-principal>#nav-menu>.item-lista-menu:nth-child(2)>.btn-menu>.cabecalho-btn-menu>.titulo-btn-menu{font-size: var(--title-play);font-weight: 700;}
+    
+    #screen-1>#menu-principal>#menu-prin>#navegacao-menu-principal>#nav-menu>.item-lista-menu:nth-child(3)>.btn-menu>.cabecalho-btn-menu{padding:15px;}
+
+    #screen-1>#menu-principal>#menu-prin>#navegacao-menu-principal>#nav-menu>.sublista-menu{grid-area: loja;flex-direction: column;}
+
+    #screen-1>#menu-principal>#menu-prin>#navegacao-menu-principal>#nav-menu>.sublista-menu>.item-sublista-menu>.btn-menu{height: calc((100vw / 2) - 15px);display: flex;}
+
+    #screen-1>#menu-principal>#menu-prin>#navegacao-menu-principal>#nav-menu>.item-lista-menu:nth-child(2){grid-area: jogar;}
+
+    #screen-1>#menu-principal>#menu-prin>#navegacao-menu-principal>#nav-menu>.item-lista-menu:nth-child(2)>.btn-menu{background: #8D0801;}
+
+    #screen-1>#menu-principal>#menu-prin>#navegacao-menu-principal>#nav-menu>.item-lista-menu:nth-child(3){grid-area: atualizacao;}
+
+    /*---------------------------------------------------------------------------------------------------------*/
+    /*---------------------------------------------------------------------------------------------------------*/
+    /*---------------------------------------------------------------------------------------------------------*/
+
+    #screen-2{height: 100vh;display: grid;place-items: center;text-align: center;}
+
+    #screen-2>#cabecalho-carregamento>#titulo-nome-load-game>.letra-animada{font-size: 2.375em;font-family:'Adelia', sans-serif;margin-bottom: 5px;text-shadow: 0 0 25px rgba(244, 213, 141, .5);}
+
+    #screen-2>#cabecalho-carregamento>#titulo-modo-jogo{font-size: var(--title-play);}
+
+    /*---------------------------------------------------------------------------------------------------------*/
+    /*---------------------------------------------------------------------------------------------------------*/
+    /*---------------------------------------------------------------------------------------------------------*/
+
+    #screen-3{height: 100vh;}
+
+    #screen-3>#cabecalho-area-jogo{height: 100px;text-align: center;}
+
+    #screen-3>#cabecalho-area-jogo>#nav-jogo{width: 100%;}
+    
+    #screen-3>#cabecalho-area-jogo>#nav-jogo>#lista-nav-jogo{
+        display: flex;align-items: center;justify-content: space-around;
+        text-transform: uppercase;
+    }
+
+    #screen-3>#cabecalho-area-jogo>#nav-jogo>#lista-nav-jogo>#time-jogo{font-size: var(--title-play);font-weight: 500;}
+
+    #screen-3>#cabecalho-area-jogo>#nav-jogo>#lista-nav-jogo>#score-player>#score{font-size: var(--title-btn-menu);margin-top: 5px;}
+
+    #screen-3>#cabecalho-area-jogo>#nav-jogo>#lista-nav-jogo>.item-lista-nav-jogo>#pause-menu{width: 20px;height: 35px;background: url('../_media/_svg/pause-icon.svg') no-repeat center center;background-size: cover;border: none;}
+
+    #screen-3>#icons-btns{height: calc(100vh - 100px);}
+
+    #screen-3>#icons-btns>#icon-spawn{height: calc(100vh - 100px - (100vw / 2));background: transparent;}
+
+    #screen-3>#icons-btns>#icon-spawn>#icon-s{
+        width: 150px;height: 150px;
+        background: #8D0801;
+        border: 1px solid #F4D58D;border-radius: 50%;
+    }
+
+    #screen-3>#icons-btns>#ib-btns{background: red;}
+
+    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib{
+        display: grid;
+        grid-template-areas: "icon-1 icon-2"
+                            "icon-3 icon-4";
+    }
+
+    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib>.btn-icons-game{
+        width: calc(100vw / 2);height: calc((100vw / 4));
+        background: #001427;
+        border: 0.5px solid #F4D58D;
+        display: grid;place-items: center;
+    }
+
+    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(1)>.btn-icons-game{grid-area: icon-1;}
+    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(2)>.btn-icons-game{grid-area: icon-2;}
+    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(3)>.btn-icons-game{grid-area: icon-3;}
+    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(4)>.btn-icons-game{grid-area: icon-4;}
+
+    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib>.btn-icons-game>.icon-btn-game{
+        width: 75px;height: 75px;
+        background: #8D0801;border: 1px solid #F4D58D;border-radius: 50%;
+    }
+
+    #screen-3>#icons-btns>#pronto-comecar,
+    #screen-3>#icons-btns>#menu-pause,
+    #screen-3>#icons-btns>#fim-jogo{
+        height: 100vh;
+        background: rgba(0,0,0,.75);
+        text-align: center;
+    }
+
+    #screen-3>#icons-btns .title-in-game{font-size: 2.375em;font-weight: 600;margin-bottom: 75px;}
+
+    #screen-3>#icons-btns .btn-in-game{
+        width: 175px;height: 45px;
+        border: 1px solid #F4D58D;border-radius: 5px;
+        margin-bottom: 15px;
+    }
+
+    #screen-3>#icons-btns>#fim-jogo .btn-in-game{width: 250px;}
+
+    #screen-3>#icons-btns .btn-prin{
+        background: #8D0801;
+        font-size: 1.8125em;font-weight: 600;text-transform: uppercase;
+    }
+
+    #screen-3>#icons-btns>#menu-pause .btn-prin,
+    #screen-3>#icons-btns>#fim-jogo .btn-prin{font-size: var(--title-play);}
+
+    #screen-3>#icons-btns>#fim-jogo .btn-prin{text-transform: none;margin-top: 10px;}
+
+    #screen-3>#icons-btns>#pronto-comecar>#comecar{display: none;}
+
+    #screen-3>#icons-btns>#fim-jogo>#cabecalho-fim-jogo>#lista-score-coins-exp>.item-lista-sce{margin-bottom: 15px;}
+
+    #screen-3>#icons-btns>#fim-jogo>#cabecalho-fim-jogo>#lista-score-coins-exp>.item-lista-sce:nth-child(4),
+    #screen-3>#icons-btns>#fim-jogo>#cabecalho-fim-jogo>#lista-score-coins-exp>.item-lista-sce:nth-child(5){color: #708d81;}
+
+    #screen-3>#icons-btns>#fim-jogo .title-in-game{margin-bottom: 10px;}
+
+    #screen-3>#icons-btns>#fim-jogo>#cabecalho-fim-jogo>#lista-score-coins-exp>#title-n-record{font-size: var(--title-play);}
+
+    #screen-3>#icons-btns>#fim-jogo>#cabecalho-fim-jogo>#lista-score-coins-exp>#scoreJogo{font-weight: 600;}
+}
+
+.letra-animada{
+    animation: letraAnimada .25s linear forwards;
+    animation-delay: .1s;
+}
+
+.letra-animada:nth-child(2){animation-delay: .2s;}
+.letra-animada:nth-child(3){animation-delay: .3s;}
+.letra-animada:nth-child(4){animation-delay: .4s;}
+.letra-animada:nth-child(5){animation-delay: .5s;}
+.letra-animada:nth-child(6){animation-delay: .6s;}
+.letra-animada:nth-child(7){animation-delay: .7s;}
+
+@keyframes letraAnimada {
+    50%,100%{color: #F4D58D;}
+    99%{color: #001427;}
+}
