@@ -3,6 +3,8 @@ const elSel = (el) => document.querySelector(el)
 let jogador = {
     nomeJogador: 'Jogador',
     nivelJogador: 0,
+    hitClick: 25,
+    nivelHitClick: 5,
     coinsMl: 0,
     expJogador: 0,
     expProximoNivel: undefined,
@@ -11,7 +13,7 @@ let jogador = {
     ]
 }
 
-let {nomeJogador, nivelJogador, coinsMl, expJogador, expProximoNivel} = jogador
+let {nomeJogador, nivelJogador, hitClick, nivelHitClick, coinsMl, expJogador, expProximoNivel} = jogador
 
 let jogo = {
     tempo: 60,
@@ -23,21 +25,25 @@ let jogo = {
     highScore: [],
     menuPause: false,
     newGame: true,
+    listaID: ['icon-1','icon-2','icon-3','icon-4'],
+    iconAtual: undefined
 }
 
-let {tempo, contTempo, setTempo, ptsAtuais, salvaPts, melhorPts, highScore, menuPause, newGame} = jogo
+let {tempo, contTempo, setTempo, ptsAtuais, salvaPts, melhorPts, highScore, menuPause, newGame, listaID, iconAtual} = jogo
 
 let time
 let timeFimJogo
 
-elSel('#jogar').addEventListener('touchstart', irJogar)
-elSel('#voltar-menu-1').addEventListener('touchstart', voltarMenu)
-elSel('#voltar-menu-2').addEventListener('touchstart', voltarMenu)
-elSel('#voltar-menu-3').addEventListener('touchstart', voltarMenu)
-elSel('#pc-start').addEventListener('touchstart', comecarPartida)
-elSel('#pause-menu').addEventListener('touchstart', pauseMenu)
-elSel('#cont-jogo').addEventListener('touchstart', pauseMenu)
-elSel('#jogar-dnv').addEventListener('touchstart', jogarDnv)
+elSel('#jogar').addEventListener('touchend', irJogar)
+elSel('#voltar-menu-1').addEventListener('touchend', voltarMenu)
+elSel('#voltar-menu-2').addEventListener('touchend', voltarMenu)
+elSel('#voltar-menu-3').addEventListener('touchend', voltarMenu)
+elSel('#pc-start').addEventListener('touchend', comecarPartida)
+elSel('#pause-menu').addEventListener('touchend', pauseMenu)
+elSel('#cont-jogo').addEventListener('touchend', pauseMenu)
+elSel('#jogar-dnv').addEventListener('touchend', jogarDnv)
+
+for(i=1;i<5;i++){elSel(`#btn-icon-game-${i}`).addEventListener('touchstart', ()=>{acaoClick(i)})}
 
 function irJogar(){
     for(i=1;i<4;i++){elSel(`#screen-${i}`).style.marginLeft = '-100vw'}
@@ -74,10 +80,10 @@ function comecarPartida(){
 
         if(setTempo === false){
             time = setInterval(() => {
-                if(contTempo <= 60 && contTempo >= 10){
+                if(contTempo <= 60 && contTempo > 10){
                     contTempo--
                     elSel('#time-jogo').innerText = `0:${contTempo}`
-                }else if(contTempo < 10 && contTempo >= 1){
+                }else if(contTempo <= 10 && contTempo >= 1){
                     contTempo--
                     elSel('#time-jogo').innerText = `0:0${contTempo}`
                 }else if(contTempo < 1 || contTempo === 0){
@@ -92,6 +98,44 @@ function comecarPartida(){
         }
 
     },1250)
+}
+
+function allSimb(){
+    iconAtual = Math.floor((Math.random() * 4) + 1)
+    
+    //elSel('#icon-s').style.background = `url('../media/svg/icon-${iconAtual}.svg') no-repeat center center`
+    //elSel('#icon-s').style.backgroundSize = `cover`
+}
+
+function acaoClick(acao){
+    acao === iconAtual ? hit() : error()
+    elSel('#score').innerHTML = ptsAtuais
+    allSimb()
+}
+
+function hit(){
+    ptsAtuais += hitClick * nivelHitClick
+    efeitos('hit')
+}
+
+function error(){
+    ptsAtuais -= 25
+    if(ptsAtuais < 0){ptsAtuais = 0}
+    efeitos('error')
+}
+
+function efeitos(eff){
+    switch(eff){
+        case 'hit':
+            elSel('#icon-s').style.boxShadow = '0 0 25px rgba(0, 255, 0, .5)'
+            break;
+        case 'error':
+            elSel('#icon-s').style.boxShadow = '0 0 25px rgba(255, 0, 0, .5)'
+            break;
+    }
+    setTimeout(() => {
+        elSel('#icon-s').style.boxShadow = 'none'
+    }, 250);
 }
 
 function pauseMenu(){
@@ -111,10 +155,10 @@ function pauseMenu(){
             
             if(setTempo === false){
                 time = setInterval(() => {
-                    if(contTempo <= 60 && contTempo >= 10){
+                    if(contTempo <= 60 && contTempo > 10){
                         contTempo--
                         elSel('#time-jogo').innerText = `0:${contTempo}`
-                    }else if(contTempo <= 9 && contTempo >= 1){
+                    }else if(contTempo <= 10 && contTempo >= 1){
                         contTempo--
                         elSel('#time-jogo').innerText = `0:0${contTempo}`
                     }else if(contTempo < 1 || contTempo === 0){
@@ -122,7 +166,7 @@ function pauseMenu(){
                         clearInterval(time)
                     }
                 }, 1000);
-    
+            
                 timeFimJogo = setTimeout(()=>{fimJogo()}, contTempo * 1000 )
 
                 setTempo = true
@@ -136,31 +180,48 @@ function pauseMenu(){
 function fimJogo(){
     elSel('#fim-jogo').style.display = 'grid'
     setTempo = false
+
+    salvaPts = ptsAtuais
+    ptsAtuais = 0
+
+    highScore.push(salvaPts)
+    
+    if(melhorPts != 0 && salvaPts > melhorPts){
+        melhorPts = salvaPts
+        elSel('#title-n-record').innerText = `Novo Recorde!`
+    }else if(melhorPts != 0 && salvaPts < melhorPts){
+        elSel('#title-n-record').innerText = `Você Obteve`   
+    }else if(melhorPts === 0 && salvaPts > 0){
+        melhorPts = salvaPts
+        elSel('#title-n-record').innerText = `Novo Recorde!`
+    }
+
+
+    elSel('#scoreJogo').innerText = `${salvaPts} Pontos`
 }
 
 function jogarDnv(){
     contTempo = 60
     
     elSel('#time-jogo').innerText = '1:00'
-    elSel('#score').innerText = '0'
+    elSel('#score').innerText = ptsAtuais
 
     elSel('#fim-jogo').style.display = 'none'
 
     if(setTempo === false){
         time = setInterval(() => {
-            if(contTempo <= 60 && contTempo >= 10){
+            if(contTempo <= 60 && contTempo > 10){
                 contTempo--
                 elSel('#time-jogo').innerText = `0:${contTempo}`
-            }else if(contTempo < 10 && contTempo >= 1){
+            }else if(contTempo <= 10 && contTempo >= 1){
                 contTempo--
                 elSel('#time-jogo').innerText = `0:0${contTempo}`
             }else if(contTempo < 1 || contTempo === 0){
                 elSel('#time-jogo').innerText = `0:0${contTempo}`
                 clearInterval(time)
-                fimJogo()
             }
         }, 1000);
     
-        setTimeout(()=>{fimJogo()}, tempo * 1000 )
+        timeFimJogo = setTimeout(()=>{fimJogo()}, tempo * 1000 )
     }
 }
