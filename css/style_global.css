@@ -98,14 +98,14 @@ button{background:none;border: none;}
         position: relative;
         top: 20px;
         width: 75px;height: 10px;
-        -webkit-box-shadow: 0 0 10px rgba(244, 213, 141, .5);
-                box-shadow: 0 0 10px rgba(244, 213, 141, .5);
+        background: transparent;
+        border: 1px solid #F4D58D;
         grid-area: exp;
     }
 
     #screen-1>#nav-bar>#navegacao>#nav-lista>.item-lista-nav>#config{
         width: 50px;height: 50px;
-        background: url(../media/svg/_config-icon.svg) no-repeat center center;background-size: cover;
+        background: url('../media/svg/config-icon.svg') no-repeat center center;background-size: cover;
         border: none;
     }
 
@@ -187,12 +187,11 @@ button{background:none;border: none;}
 
     #screen-3>#icons-btns{height: calc(100vh - 100px);}
 
-    #screen-3>#icons-btns>#icon-spawn{height: calc(100vh - 100px - (100vw / 2));background: #001427;-webkit-transition: .1s;-o-transition: .1s;transition: .1s;}
+    #screen-3>#icons-btns>#icon-spawn{height: calc(100vh - 100px - (100vw / 2));background: #001427;}
 
     #screen-3>#icons-btns>#icon-spawn>#icon-s{
         width: 150px;height: 150px;
         background: #8D0801;
-        border: 1px solid #F4D58D;border-radius: 50%;
     }
 
     #screen-3>#icons-btns>#ib-btns{background: rgb(255, 0, 0);}
@@ -214,15 +213,20 @@ button{background:none;border: none;}
 
     #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib>.btn-icons-game:active{background: #708d81;}
 
-    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(1)>.btn-icons-game{grid-area: icon-1;}
-    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(2)>.btn-icons-game{grid-area: icon-2;}
-    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(3)>.btn-icons-game{grid-area: icon-3;}
-    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(4)>.btn-icons-game{grid-area: icon-4;}
+    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(1)>#btn-icon-game-1{grid-area: icon-1;}
+    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(2)>#btn-icon-game-2{grid-area: icon-2;}
+    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(3)>#btn-icon-game-3{grid-area: icon-3;}
+    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(4)>#btn-icon-game-4{grid-area: icon-4;}
 
     #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib>.btn-icons-game>.icon-btn-game{
         width: 75px;height: 75px;
-        background: #8D0801;border: 1px solid #F4D58D;border-radius: 50%;
+        background: #8D0801;
     }
+
+    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(1)>#btn-icon-game-1>.icon-btn-game{background: transparent url('../media/svg/icon-1.svg') no-repeat center center;background-size: 100%;}
+    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(2)>#btn-icon-game-2>.icon-btn-game{background: transparent url('../media/svg/icon-2.svg') no-repeat center center;background-size: 100%;}
+    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(3)>#btn-icon-game-3>.icon-btn-game{background: transparent url('../media/svg/icon-3.svg') no-repeat center center;background-size: 100%;}
+    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(4)>#btn-icon-game-4>.icon-btn-game{background: transparent url('../media/svg/icon-4.svg') no-repeat center center;background-size: 100%;}
 
     #screen-3>#icons-btns>#pronto-comecar,
     #screen-3>#icons-btns>#menu-pause,
@@ -268,22 +272,22 @@ button{background:none;border: none;}
 
 @media (max-width:720px) and (orientation:portrait){
 
-    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(1)>.btn-icons-game{
+    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(1)>#btn-icon-game-1{
         -ms-grid-row: 1;
         -ms-grid-column: 1;
     }
 
-    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(2)>.btn-icons-game{
+    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(2)>#btn-icon-game-2{
         -ms-grid-row: 1;
         -ms-grid-column: 2;
     }
 
-    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(3)>.btn-icons-game{
+    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(3)>#btn-icon-game-3{
         -ms-grid-row: 2;
         -ms-grid-column: 1;
     }
 
-    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(4)>.btn-icons-game{
+    #screen-3>#icons-btns>#ib-btns>#cabecalho-icons-btns>#nav-icons-btn>#lista-nav-ib>.item-lista-nav-ib:nth-child(4)>#btn-icon-game-4{
         -ms-grid-row: 2;
         -ms-grid-column: 2;
     }

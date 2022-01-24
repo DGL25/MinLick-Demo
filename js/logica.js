@@ -4,10 +4,10 @@ let jogador = {
     nomeJogador: 'Jogador',
     nivelJogador: 0,
     hitClick: 25,
-    nivelHitClick: 5,
+    nivelHitClick: 1,
     coinsMl: 0,
     expJogador: 0,
-    expProximoNivel: undefined,
+    expProximoNivel: 500,
     inventario: [
         avatars = []
     ]
@@ -43,7 +43,10 @@ elSel('#pause-menu').addEventListener('touchend', pauseMenu)
 elSel('#cont-jogo').addEventListener('touchend', pauseMenu)
 elSel('#jogar-dnv').addEventListener('touchend', jogarDnv)
 
-for(i=1;i<5;i++){elSel(`#btn-icon-game-${i}`).addEventListener('touchstart', ()=>{acaoClick(i)})}
+for(i=1;i<5;i++){
+    elSel(`#btn-icon-game-${i}`).setAttribute('ontouchstart', `acaoClick(${i})`)
+    elSel(`#btn-icon-game-${i}`).setAttribute('ontouchend', `removeEff()`)
+}
 
 function irJogar(){
     for(i=1;i<4;i++){elSel(`#screen-${i}`).style.marginLeft = '-100vw'}
@@ -51,6 +54,7 @@ function irJogar(){
     setTimeout(()=>{
         for(i=1;i<4;i++){elSel(`#screen-${i}`).style.marginLeft = '-200vw'}
         elSel('#pronto-comecar').style.display = 'grid'
+        allSimb()
     }, 1000)
 }
 
@@ -66,8 +70,10 @@ function voltarMenu(){
 
         contTempo = 60
 
+        ptsAtuais = 0
+
         elSel('#time-jogo').innerText = '1:00'
-        elSel('#score').innerText = '0'
+        elSel('#score').innerText = ptsAtuais
     }, 1000)
 }
 
@@ -103,8 +109,8 @@ function comecarPartida(){
 function allSimb(){
     iconAtual = Math.floor((Math.random() * 4) + 1)
     
-    //elSel('#icon-s').style.background = `url('../media/svg/icon-${iconAtual}.svg') no-repeat center center`
-    //elSel('#icon-s').style.backgroundSize = `cover`
+    elSel('#icon-s').style.background = `url('../media/svg/icon-${iconAtual}.svg') no-repeat center center`
+    elSel('#icon-s').style.backgroundSize = `100%`
 }
 
 function acaoClick(acao){
@@ -127,16 +133,15 @@ function error(){
 function efeitos(eff){
     switch(eff){
         case 'hit':
-            elSel('#icon-s').style.boxShadow = '0 0 25px rgba(0, 255, 0, .5)'
+            elSel('#icon-spawn').style.background = '#ccff90'
             break;
         case 'error':
-            elSel('#icon-s').style.boxShadow = '0 0 25px rgba(255, 0, 0, .5)'
+            elSel('#icon-spawn').style.background = '#ff8a80'
             break;
     }
-    setTimeout(() => {
-        elSel('#icon-s').style.boxShadow = 'none'
-    }, 250);
 }
+
+function removeEff(){elSel('#icon-spawn').style.background = 'transparent'}
 
 function pauseMenu(){
     switch(menuPause){
@@ -180,6 +185,9 @@ function pauseMenu(){
 function fimJogo(){
     elSel('#fim-jogo').style.display = 'grid'
     setTempo = false
+
+    coinsMl+=2
+    expJogador+=127
 
     salvaPts = ptsAtuais
     ptsAtuais = 0
