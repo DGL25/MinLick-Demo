@@ -178,7 +178,7 @@ button{background:none;border: none;}
 
     #screen-2{height: 100vh;display: -ms-grid;display: grid;place-items: center;text-align: center;}
 
-    #screen-2>#cabecalho-carregamento>#titulo-nome-load-game{font-size: 3.750em;font-family:'ADELIA', sans-serif;margin-bottom: 5px;color: transparent;background: transparent url('../media/svg/minlick.svg') no-repeat center center;background-size: cover;}
+    #screen-2>#cabecalho-carregamento>#titulo-nome-load-game{font-size: 3.750em;font-family:'ADELIA', sans-serif;margin-bottom: 5px;color: transparent !important;background: transparent url('../media/svg/minlick.svg') no-repeat center center;background-size: cover;}
 
     #screen-2>#cabecalho-carregamento>#titulo-modo-jogo{font-size: var(--title-play);}
 
