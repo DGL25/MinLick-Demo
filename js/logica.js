@@ -109,13 +109,13 @@ function comecarPartida(){
 function allSimb(){
     iconAtual = Math.floor((Math.random() * 4) + 1)
     
-    elSel('#icon-s').style.background = `url('../media/svg/icon-${iconAtual}.svg') no-repeat center center`
-    elSel('#icon-s').style.backgroundSize = `100%`
+    elSel('#icon-s').classList = `icon-s-${iconAtual}`
 }
 
 function acaoClick(acao){
     acao === iconAtual ? hit() : error()
     elSel('#score').innerHTML = ptsAtuais
+    elSel('#icon-s').classList.remove(`icon-s-${iconAtual}`)
     allSimb()
 }
 
