@@ -20,9 +20,15 @@
 button{background:none;border: none;}
 
 @font-face {
-    font-family: 'Adelia';
-    src: url('../media/fonts/ADELIA.otf') format('opentype');
+    font-family: 'ADELIA';
+    src: url('ADELIA.woff2') format('woff2'),
+        url('ADELIA.woff') format('woff'),
+        url('ADELIA.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
+
 
 :root{
     --title-play: 1.375em;
@@ -158,7 +164,7 @@ button{background:none;border: none;}
 
     #screen-2{height: 100vh;display: -ms-grid;display: grid;place-items: center;text-align: center;}
 
-    #screen-2>#cabecalho-carregamento>#titulo-nome-load-game{font-size: 2.375em;font-family: 'Adelia' , sans-serif;margin-bottom: 5px;text-shadow: 0 0 25px rgba(244, 213, 141, .5);}
+    #screen-2>#cabecalho-carregamento>#titulo-nome-load-game{font-size: 2.375em;font-family: 'ADELIA' , sans-serif;margin-bottom: 5px;text-shadow: 0 0 25px rgba(244, 213, 141, .5);}
 
     #screen-2>#cabecalho-carregamento>#titulo-modo-jogo{font-size: var(--title-play);}
 
