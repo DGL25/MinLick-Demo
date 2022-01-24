@@ -6,6 +6,33 @@
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@font-face {
+    font-family: 'ADELIA';
+    src: url('../media/fonts/ADELIA.eot');
+    src: url('../media/fonts/ADELIA.eot?#iefix') format('embedded-opentype'),
+        url('../media/fonts/ADELIA.woff2') format('woff2'),
+        url('../media/fonts/ADELIA.woff') format('woff'),
+        url('../media/fonts/ADELIA.ttf') format('truetype'),
+        url('../media/fonts/ADELIA.svg#ADELIA') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ADELIA';
+    src: url('../media/fonts/ADELIA_1.eot');
+    src: url('../media/fonts/ADELIA_1.eot?#iefix') format('embedded-opentype'),
+        url('../media/fonts/ADELIA_1.woff2') format('woff2'),
+        url('../media/fonts/ADELIA_1.woff') format('woff'),
+        url('../media/fonts/ADELIA_1.ttf') format('truetype'),
+        url('../media/fonts/ADELIA_1.svg#ADELIA') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 *{
     padding: 0;margin: 0;
     -webkit-box-sizing: border-box;
@@ -17,23 +44,13 @@
     border: none;
 }
 
-button{background:none;border: none;}
-
-@font-face {
-    font-family: 'ADELIA';
-    src: url('../media/fonts/ADELIA.woff2') format('woff2'),
-        url('../media/fonts/ADELIA.woff') format('woff'),
-        url('../media/fonts/ADELIA.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
 :root{
     --title-play: 1.375em;
     --title-btn-menu: 1.125em;
     --desc-btns-menu: 0.875em;
 }
+
+button{background:none;border: none;}
 
 @media (max-width:720px) and (orientation:portrait) {
     body{background: #001427;}
