@@ -67,6 +67,12 @@ function voltarMenu(){
         elSel('#comecar').style.display = 'none'
         elSel('#menu-pause').style.display = 'none'
         elSel('#fim-jogo').style.display = 'none'
+        
+        clearInterval(time)
+        clearTimeout(timeFimJogo)
+
+        setTempo = false
+        menuPause = false
 
         contTempo = 60
 
